@@ -1,2 +1,2 @@
 # Snake
-JS_snake
+Snake game made with js html
