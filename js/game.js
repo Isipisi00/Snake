@@ -1,14 +1,19 @@
 import {update as updateSnake, draw as drawSnake, snake_speed} from './snake.js';
 
-var lastRenderTime=1000;
+var lastRender=0;
+var gameOver=false; 
 
-const gameBoard = document.getElementById('game-board');
+const board = document.getElementById('game-board');
 
 function main(currentTime){
-    const secondsSinceLastRender = (currentTime - lastRenderTime)/100;
-
+    if (gameOver){
+        if (confirm('-------GAME OVER-------\nDesea jugar otra vez?')) {
+            window.location = './index.html'; 
+        }
+        return
+    }
     window.requestAnimationFrame(main);
-
+    const secondsSinceLastRender = (currentTime - lastRenderTime)/1000;
     if (secondsSinceLastRender < 1 / snake_speed) return
     
     lastRenderTime=currentTime;
@@ -20,11 +25,14 @@ function main(currentTime){
 
 window.requestAnimationFrame(main);
 
+
 function update(){
     updateSnake();
+    //updateFood();
+    //gameOver();
 }
 
 function draw(){
-    gameBoard.innerHTML='';
-    drawSnake(gameBoard);
+    board.innerHTML='';
+    drawSnake(board);
 }
