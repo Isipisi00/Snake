@@ -1,36 +1,31 @@
 import {getDirection} from './direction.js';
 
 export const snake_speed = 5;
-const snakeBody = [    {x:11, y:11}, {x:11, y:12} 
-];
+const snake_body = [{x:11, y:11}];
+
+let newpPart=0;
 
 
 export function update(){
+    addParts();
+    const direction = getDirection();
+    for (let i = snake_body.length - 2; i >= 0; i--) {
+        snake_body[i + 1] = { ...snake_body[i] }
+    }
+    snake_body[0].x += inputDirection.x
+    snake_body[0].y += inputDirection.y
 
-    const direcion = getDirection();
-    /*for (let i = -1; i <= snakeBody.length; i++) {
-        snakeBody[i] = {...snakeBody[i-1]}
-        
-    }*/
-    snakeBody.forEach(segment => {
-        segment.x += direcion.x;
-        segment.y += direcion.y;
-
-    });
-
-    //snakeBody[0].x +=direcion.x; 
-    //snakeBody[0].y +=direcion.y; 
 
 }
 
-export function draw(gameBoard){
-    snakeBody.forEach(segment => {
+export function draw(board){
+    snake_body.forEach(part => {
         const snakeElement = document.createElement('div');
 
-        snakeElement.style.gridRowStart = segment.y;
-        snakeElement.style.gridColumnStart = segment.x;
+        snakeElement.style.gridRowStart = part.y;
+        snakeElement.style.gridColumnStart = part.x;
         snakeElement.classList.add('snake');
-        gameBoard.appendChild(snakeElement);
+        board.appendChild(snakeElement);
     })
 }
 

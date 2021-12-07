@@ -13,10 +13,11 @@ function main(currentTime){
         return
     }
     window.requestAnimationFrame(main);
-    const secondsSinceLastRender = (currentTime - lastRenderTime)/1000;
-    if (secondsSinceLastRender < 1 / snake_speed) return
+    const secsLastRender = (currentTime - lastRender)/1000;
+
+    if (secsLastRender < 1 / snake_speed) return;
     
-    lastRenderTime=currentTime;
+    lastRender=currentTime;
     update();    
     draw();
     
@@ -33,6 +34,5 @@ function update(){
 }
 
 function draw(){
-    board.innerHTML='';
     drawSnake(board);
 }
