@@ -1,4 +1,4 @@
-import { getDirection } from "./input.js";
+import { getDirection } from "./direction.js";
 
 //  speed - velocidad de la serpiente   //
 //  snakeBody - cuerpo                  //
@@ -12,8 +12,11 @@ export function update() {
     //  Añadimos partes en caso de haber comido una pieza
     addParts();
 
-    //  direction - 
+    //  direction - guardamos los datos de x e y
     const direction = getDirection()
+
+    //  Igualamos la cabeza de la serpiente al resto de partes del cuerpo   //
+    //  para que la dirección afecte por orden al resto del cuerpo          //
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = { ...snakeBody[i] }
     }
@@ -21,6 +24,8 @@ export function update() {
     snakeBody[0].y += direction.y;
 }
 
+
+//  Dibuja la serpiente en el tablero
 export function draw(board) {
     snakeBody.forEach(segment => {
         const snakeElement = document.createElement('div')
@@ -31,10 +36,12 @@ export function draw(board) {
     })
 }
 
+//  Añade una parte a la serpiente
 export function expandSnake() {
     newSnakePart += 1;
 }
 
+//  Comprueba si la posición de la serpiente coincide con otro elemento
 export function onSnake(position, ignoreHead = false ) {
     return snakeBody.some((segment, index) => {
         if (ignoreHead && index === 0) return false
@@ -46,14 +53,17 @@ export function snakeHead() {
     return snakeBody[0]
 }
 
+//  Comprueba si hay alguna parte de la serpiente (cabeza) que coincida consigo misma
 export function snakeIntersection() {
     return onSnake(snakeBody[0], { ignoreHead: true })
 }
 
+//  Iguala dos posiciones
 function equalPositions(pos1, pos2) {
     return pos1.x === pos2.x && pos1.y === pos2.y
 }
 
+//  Añade la nueva parte dela serpiente
 function addParts() {
     for (let i = 0; i < newSnakePart; i++) {
         snakeBody.push({ ...snakeBody[snakeBody.length - 1] })

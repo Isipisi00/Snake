@@ -9,7 +9,7 @@ import { outsideBoard } from './grid.js'
 //  gameBoard - 'Tauler' de joc                 //
 let lastRender = 0;
 let gameOver = false;
-const gameBoard = document.getElementById('game-board');
+const gameBoard = document.getElementById('board');
 
 //Funció amb el bucle proncipal
 function main(currentTime) {
@@ -56,5 +56,8 @@ function draw() {
 
 // Comprueba fin del juego
 function checkDeath() {
-    gameOver = outsideBoard(snakeHead()) || snakeIntersection();
+    if(outsideBoard(snakeHead()) || snakeIntersection()){
+        gameOver = true;
+    }
+    
 }
