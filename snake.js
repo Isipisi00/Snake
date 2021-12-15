@@ -1,8 +1,8 @@
-import { getDirection } from "./direction.js";
+import { getDirection, getRotation } from "./direction.js";
 
 //  speed - velocidad de la serpiente   //
 //  snakeBody - cuerpo                  //
-export const speed = 15;
+export var speed = 15;
 const snakeBody =[{x: 11, y: 11}];
 let newSnakePart = 0;
 
@@ -13,7 +13,7 @@ export function update() {
     addParts();
 
     //  direction - guardamos los datos de x e y
-    const direction = getDirection()
+    const direction = getDirection();
 
     //  Igualamos la cabeza de la serpiente al resto de partes del cuerpo   //
     //  para que la dirección afecte por orden al resto del cuerpo          //
@@ -28,11 +28,24 @@ export function update() {
 //  Dibuja la serpiente en el tablero
 export function draw(board) {
     snakeBody.forEach(segment => {
+        const rotation = getRotation();
+
         const snakeElement = document.createElement('div')
         snakeElement.style.gridRowStart = segment.y
         snakeElement.style.gridColumnStart = segment.x
-        snakeElement.classList.add('snake')
-        board.appendChild(snakeElement)
+
+        if (segment == snakeBody[0]) {
+            snakeElement.classList.add('snake-head');    
+        }else if(segment == snakeBody[snakeBody.length-1] && snakeBody.length > 1){
+            snakeElement.classList.add('snake-tail');
+        }else{
+            snakeElement.classList.add('snake-body');    
+        }
+        snakeElement.classList.add('snake');
+
+        snakeElement.style.transform = 'rotate('+rotation+'deg)';
+        
+        board.appendChild(snakeElement);
     })
 }
 
@@ -62,6 +75,11 @@ export function snakeIntersection() {
 function equalPositions(pos1, pos2) {
     return pos1.x === pos2.x && pos1.y === pos2.y
 }
+
+export function addSpeed(){
+    speed+=15;
+}
+
 
 //  Añade la nueva parte dela serpiente
 function addParts() {

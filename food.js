@@ -1,4 +1,4 @@
-import { onSnake, expandSnake} from './snake.js';
+import { onSnake, expandSnake, addSpeed} from './snake.js';
 import { randomGridPosition } from './grid.js';
 
 //  Le asignamos las coordenadas random a nustra variable
@@ -7,7 +7,8 @@ let food = getRandomFoodPosition();
 //  Si la serpiente toca la comida, añadimos otra parte al cuerpo y generamos otra pieza de comida
 export function update() {
     if (onSnake(food)) {
-        expandSnake()
+        addSpeed();
+        expandSnake();
         food = getRandomFoodPosition();
     }
 }

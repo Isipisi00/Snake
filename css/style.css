@@ -1,3 +1,16 @@
+@keyframes rotateUpLeft{
+    from{}
+    to{transform: rotate(-90deg);}
+}
+
+.rotate{
+    animation: rotateUL 0.5s;
+}
+
+.snake{
+
+}
+
 body{
     height: 100vh;
     width: 100vh;
@@ -10,15 +23,28 @@ body{
 
 #board{
     background-color: #CCC;
-    width: 100vmin;
-    height: 100vmin;
+    width: 95vmin;
+    height: 95vmin;
     display: grid;
-    grid-template-rows: repeat(50, 1fr);
-    grid-template-columns: repeat(50, 1fr);
+    grid-template-rows: repeat(35, 1fr);
+    grid-template-columns: repeat(35, 1fr);
 }
 
-.snake{
+
+
+.snake-head{
+    background-image: url('../media/hgead.png');
+    background-position: center center;
+    background-size: cover;
+}
+
+.snake-body{
     background-color:blue;
+    border: 0.25vmin solid black;
+}
+
+.snake-tail{
+    background-color:rebeccapurple;
     border: 0.25vmin solid black;
 }
 
