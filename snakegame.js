@@ -14,11 +14,14 @@ let gameOver = false;
 const btnJugar = document.getElementById('play');
 const btnRank = document.getElementById('rank');
 const btnInstr = document.getElementById('instr');
+const btnTornar1 = document.getElementById('tornar1');
+const btnTornar2 = document.getElementById('tornar2');
 
 var score = document.getElementById('score');
 var instr = document.getElementById('instructions');
 var rank = document.getElementById('ranking');
 var board = document.getElementById('board');
+var menu = document.getElementById('menu');
 var menus = document.querySelectorAll('.menu');
 
 btnJugar.addEventListener('click', ()=>{
@@ -46,6 +49,15 @@ btnInstr.addEventListener('click', ()=>{
 
 })
 
+btnTornar1.addEventListener('click', ()=>{
+    menu.style.display = 'flex';
+    rank.style.display = 'none';
+})
+
+btnTornar2.addEventListener('click', ()=>{
+    menu.style.display = 'flex';
+    instr.style.display = 'none';
+})
 //Funció amb el bucle principal
 function main(currentTime) {
 

@@ -50,18 +50,16 @@ body{
 }
 
 #instructions{
-    padding-top: 2em;
     text-align: center;
 }
 
 #instructions img{
-    margin-top: 2em;
     padding: 1em;
 }
 
 #instructions div{
     font-size: 20px;
-    padding-top: 13em;
+    padding-top: 10em;
     display: block;
 }
 
@@ -140,9 +138,7 @@ body{
 }
 
 .snake-tail{
-    background-image: url('../media/snakeTail.png');
-    background-position: center center;
-    background-size: cover;
+    background-color: #9eaf04;
 }
 
 .cesped1{
