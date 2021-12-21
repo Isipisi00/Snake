@@ -5,13 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>SNAKE</title>
-    <script src="snakegame.js" defer type="module"></script>
+    <script src="menu.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="board"></div>
-    <div id="score">
-        <p>SCORE: </p><p id="points"></p>
+    <div id="score" style="display: none;">
+        <p>SCORE:   <p id="points"></p></p>
     </div>
+    <div id="board" style="display: none;"></div>
+
+    <div id="menu" class="menu">
+        <div class="buttons">
+            <button id="play">JUGAR</button>
+            <button id="rank">RÀNKING</button>
+            <button id="instr">INSTRUCCIONS</button>
+        </div>
+    </div>
+
+    <div id="ranking" class="menu ranking" style="display: none;">
+        <h1>RANKING</h1>
+    </div>
+    <div id="instructions" class="menu instructions" style="display: none;">
+        <h1>INSTRUCCIONS</h1>
+        <p>El clàssic joc de SNAKE ha tornat en una nova versió</p>
+        <p>Util·litza les tecles</p>
+        <img src="./media/instructions.png" alt="teclas">
+    </div>
+
+    <script src="snakegame.js" defer type="module"></script>
 </body>
 </html>

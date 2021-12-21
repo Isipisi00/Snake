@@ -1,5 +1,6 @@
 import { onSnake, expandSnake, addSpeed} from './snake.js';
 import { randomGridPosition } from './grid.js';
+import {addScore} from './score.js';
 
 //  Le asignamos las coordenadas random a nustra variable
 let food = getRandomFoodPosition();
@@ -7,6 +8,7 @@ let food = getRandomFoodPosition();
 //  Si la serpiente toca la comida, añadimos otra parte al cuerpo y generamos otra pieza de comida
 export function update() {
     if (onSnake(food)) {
+        addScore();
         addSpeed();
         expandSnake();
         food = getRandomFoodPosition();
@@ -18,6 +20,7 @@ export function draw(gameBoard) {
     const foodElement = document.createElement('div');
     foodElement.style.gridRowStart = food.y;
     foodElement.style.gridColumnStart = food.x;
+    foodElement.style.zIndex = '60';
     foodElement.classList.add('food');
     gameBoard.appendChild(foodElement);
 }

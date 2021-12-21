@@ -52,6 +52,10 @@ window.addEventListener('keydown', e => {
         
 })
 
+export function getTailRotation(){
+    return rotation+90;
+}
+
 export function getRotation(){
     lastRotation = rotation;
     return rotation;

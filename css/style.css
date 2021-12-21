@@ -1,35 +1,92 @@
-@keyframes rotateUpLeft{
-    from{}
-    to{transform: rotate(-90deg);}
-}
-
-.rotate{
-    animation: rotateUL 0.5s;
-}
-
-.snake{
-
-}
-
 body{
-    height: 100vh;
     width: 100vh;
-    display:flex;
+    display:block;
     justify-content: center;
     align-items: center;
     margin: auto;
     background-color: black;
 }
 
-#board{
-    background-color: #CCC;
-    width: 95vmin;
-    height: 95vmin;
-    display: grid;
-    grid-template-rows: repeat(35, 1fr);
-    grid-template-columns: repeat(35, 1fr);
+.buttons{
+    padding-top: 17em;
 }
 
+/* #36490c #425708*/
+
+.buttons button{
+    border: 5px #36490c solid;
+    letter-spacing: 0.2em;
+    font-family: "ＭＳ Ｐゴシック";
+    color: black;
+    font-size: 15px;
+    display: block;
+    margin: 40px auto;
+    width: 11em;
+    height: 4.5em;
+    background-color: #b2dc16;
+    border-radius: 5px;
+}
+
+.buttons button:hover{
+    color: white;
+    background-color: #36490c;
+    border: 5px #425708 solid;
+}
+
+#board{
+    margin: auto;
+    width: 90vmin;
+    height: 90vmin;
+    display: grid;
+    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+}
+
+#score p{
+    margin: 0;
+    display: inline-block;
+    color: white;
+
+}
+
+.menu{
+    margin: auto;
+    width: 90vmin;
+    height: 90vmin;
+    background-image: url('../media/menu.png');
+    background-position: center center;
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+
+
+.f{
+    
+}
+.r{
+
+}
+.a{
+
+}
+.f{
+
+}
+.f{
+
+}
+
+#score{
+    text-align: center;
+    padding: 1em;
+    padding-right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: yellowgreen;
+}
 
 
 .snake-head{
@@ -39,13 +96,32 @@ body{
 }
 
 .snake-body{
-    background-color:blue;
-    border: 0.25vmin solid black;
+    background-color:#cddc39;
+    
 }
 
 .snake-tail{
-    background-color:rebeccapurple;
-    border: 0.25vmin solid black;
+    background-image: url('../media/snakeTail.png');
+    background-position: center center;
+    background-size: cover;
+}
+
+.cesped1{
+    background-image: url('../media/suelo5.png');
+
+    /*background-color: #B4F184;*/
+}
+
+.cesped2{
+    background-image: url('../media/suelo1.png');
+
+    /*background-color: #7ed077;*/
+}
+
+.green{
+
+    background-image: url('../media/suelo2.png');
+    /*background-color: #1e8615;*/
 }
 
 .food{

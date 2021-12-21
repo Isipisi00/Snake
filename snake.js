@@ -1,4 +1,4 @@
-import { getDirection, getRotation } from "./direction.js";
+import { getDirection, getRotation, getTailRotation } from "./direction.js";
 
 //  speed - velocidad de la serpiente   //
 //  snakeBody - cuerpo                  //
@@ -14,6 +14,7 @@ export function update() {
 
     //  direction - guardamos los datos de x e y
     const direction = getDirection();
+    const rotation = getRotation();
 
     //  Igualamos la cabeza de la serpiente al resto de partes del cuerpo   //
     //  para que la dirección afecte por orden al resto del cuerpo          //
@@ -22,6 +23,8 @@ export function update() {
     }
     snakeBody[0].x += direction.x;
     snakeBody[0].y += direction.y;
+
+
 }
 
 
@@ -29,21 +32,24 @@ export function update() {
 export function draw(board) {
     snakeBody.forEach(segment => {
         const rotation = getRotation();
-
-        const snakeElement = document.createElement('div')
+        const snakeElement = document.createElement('div');       
+ 
         snakeElement.style.gridRowStart = segment.y
         snakeElement.style.gridColumnStart = segment.x
 
         if (segment == snakeBody[0]) {
-            snakeElement.classList.add('snake-head');    
+            snakeElement.classList.add('snake-head');
+            snakeElement.style.transform = 'rotate('+rotation+'deg)';  
         }else if(segment == snakeBody[snakeBody.length-1] && snakeBody.length > 1){
             snakeElement.classList.add('snake-tail');
+            //snakeElement.style.transform = 'rotate('+getTailRotation()+'deg)';
         }else{
             snakeElement.classList.add('snake-body');    
         }
         snakeElement.classList.add('snake');
 
-        snakeElement.style.transform = 'rotate('+rotation+'deg)';
+ 
+        snakeElement.style.zIndex = '50';
         
         board.appendChild(snakeElement);
     })
@@ -77,7 +83,7 @@ function equalPositions(pos1, pos2) {
 }
 
 export function addSpeed(){
-    speed+=15;
+    speed+=1;
 }
 
 
