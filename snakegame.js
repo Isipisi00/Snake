@@ -1,6 +1,7 @@
 import { update as updateSnake, draw as drawSnake, speed, snakeHead, snakeIntersection } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
 import { outsideBoard, drawBoard } from './grid.js';
+import { points } from './score.js';
 /*import { rankPlayer } from './ranking,js';
 import {points} from './score';*/
 
@@ -65,7 +66,7 @@ function main(currentTime) {
     if (gameOver) {
         //rankPlayer(playerName, points);
 
-        if (confirm('you lost - press OK to restart')) {
+        if (confirm('Has conseguido '+ points + ' puntos')) {
             window.location = './index.html';
         }return
         
