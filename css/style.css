@@ -49,7 +49,24 @@ body{
 
 }
 
+#instructions{
+    padding-top: 2em;
+    text-align: center;
+}
+
+#instructions img{
+    margin-top: 2em;
+    padding: 1em;
+}
+
+#instructions div{
+    font-size: 20px;
+    padding-top: 13em;
+    display: block;
+}
+
 .menu{
+    font-family: "ＭＳ Ｐゴシック";
     margin: auto;
     width: 90vmin;
     height: 90vmin;
@@ -61,22 +78,44 @@ body{
     align-items: center;    
 }
 
+.tornar{
+    border: 5px #36490c solid;
+    letter-spacing: 0.2em;
+    font-family: "ＭＳ Ｐゴシック";
+    color: black;
+    font-size: 15px;
+    display: block;
+    margin: 40px auto;
+    width: 11em;
+    height: 4.5em;
+    background-color: #b2dc16;
+    border-radius: 5px;
+}
 
+.tornar:hover{
+    color: white;
+    background-color: #36490c;
+    border: 5px #425708 solid;
+}
 
 .f{
-    
+    content: 'F';
 }
+
 .r{
-
+    content: 'R';
 }
+
 .a{
-
+    content: 'A';
 }
-.f{
 
+.s{
+    content: 'S';
 }
-.f{
 
+.e{
+    content: 'E';
 }
 
 #score{

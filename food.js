@@ -22,6 +22,7 @@ export function draw(gameBoard) {
     foodElement.style.gridColumnStart = food.x;
     foodElement.style.zIndex = '60';
     foodElement.classList.add('food');
+    foodElement.classList.add('f');
     gameBoard.appendChild(foodElement);
 }
 

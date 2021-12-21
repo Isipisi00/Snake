@@ -30,6 +30,22 @@ btnJugar.addEventListener('click', ()=>{
 
 })
 
+btnRank.addEventListener('click', ()=>{
+    menus.forEach(menu=>{
+        menu.style.display = 'none';
+    })
+    rank.style.display = 'flex';
+
+})
+
+btnInstr.addEventListener('click', ()=>{
+    menus.forEach(menu=>{
+        menu.style.display = 'none';
+    })
+    instr.style.display = 'block';
+
+})
+
 //Funció amb el bucle principal
 function main(currentTime) {
 
@@ -39,7 +55,7 @@ function main(currentTime) {
 
         if (confirm('you lost - press OK to restart')) {
             window.location = './index.html';
-        }
+        }return
         
     }
     window.requestAnimationFrame(main);
