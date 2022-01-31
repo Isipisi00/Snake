@@ -2,7 +2,7 @@ import { getDirection, getRotation, getTailRotation } from "./direction.js";
 
 //  speed - velocidad de la serpiente   //
 //  snakeBody - cuerpo                  //
-export var speed = 15;
+export var speed = 10;
 const snakeBody =[{x: 11, y: 11}];
 let newSnakePart = 0;
 
@@ -14,7 +14,7 @@ export function update() {
 
     //  direction - guardamos los datos de x e y
     const direction = getDirection();
-    const rotation = getRotation();
+    //const rotation = getRotation();
 
     //  Igualamos la cabeza de la serpiente al resto de partes del cuerpo   //
     //  para que la dirección afecte por orden al resto del cuerpo          //
@@ -79,11 +79,11 @@ export function snakeIntersection() {
 
 //  Iguala dos posiciones
 function equalPositions(pos1, pos2) {
-    return pos1.x === pos2.x && pos1.y === pos2.y
+    return pos1.x === pos2.x && pos1.y === pos2.y;
 }
 
 export function addSpeed(){
-    speed+=1;
+    speed+=0.9;
 }
 
 
